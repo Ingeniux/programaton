@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block container %}
+
+<form method="post" accept-charset="utf-8"> {% csrf_token %}
+	{{form.as_ul}}
+<input type="submit" name="" value="Crear" placeholder="">
+</form>
+
+{% endblock container %}

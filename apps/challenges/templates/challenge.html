@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block title %}RealTime | Programatón{% endblock %}
+{% block header %}
+<link rel="stylesheet" href="{{STATIC_URL}}fonts/foundation-icons.css">	
+{% endblock header %}
+{% block container %}
+	<div class="row" style="margin-left:0%;">
+	<div class="large-3 medium-4 columns">	
+		<ul class="side-nav">	
+			<li class="heading" style="color:#444;"><b>OPCIONES:</b></li>		
+			<li>
+				<i class="step fi-clipboard-pencil"style="font-size:24px;"></i>
+				<a href="{% url 'core.views.detalle' torneo.id %}" target="_blank">Problemas</a>
+			
+			</li>			
+			<li>
+				<i class="step fi-checkbox"style="font-size:24px;"></i>
+				<a href=''>Respuestas</a>	
+			
+			</li>
+
+			<li>
+				<i class="step fi-torsos-all"style="font-size:24px;"></i>
+				<a href='{% url 'register.views.participante' torneo.id %}'>Participar</a>
+			
+			</li>	
+			
+			
+			<li>
+			<i class="step fi-lightbulb"style="font-size:24px;"></i>
+			<a href='{% url 'register.views.solucion' torneo.id %}'>Enviar solución</a>
+			
+			</li>	
+		
+		</ul><!-- lista menu -->
+		</div><!--columna menu -->
+		<header id="header" class="">
+		<h1>{{torneo.id}} : {{torneo.nombre}}</h1>
+		</header><!-- /header -->
+		
+		<div class="large-9 medium-8 columns">
+		<fieldset>			
+			<div class="row">
+				<div class="large-4 columns">
+					<label>Hora de inicio:<input id = 'hora_inicio' type="text" name="tiempo"  class="tiempo" value="{{torneo.fecha_inicio}}" readonly></label>
+				</div>
+				<div class="large-4 columns">
+					<label>Hora de finalización:<input id = 'hora_finalizacion' type="text" name="tiempo"  class="tiempo" value="{{torneo.fecha_finalizacion}}" readonly></label>
+				</div>
+				<div class="large-4 columns">
+					<label>Tiempo transcurrido<input id = 'cronometro' type="text" name="tiempo"  class="tiempo" value="00:00:00" readonly></label>
+				</div>
+		
+		
+		
+			</div><!-- fila formas tiempo -->
+		</fieldset><!-- fieldset tiepos -->
+		
+	<fieldset>
+	<legend>Soluciones</legend>
+	<table id ='realtime'>
+		<tr>
+			<th>Id</th>
+			<th>Nombre</th>
+			<th>Fecha envio</th>
+			<th>Lenguaje</th>
+			<th>Alias</th>
+			<th>Estado</th>
+		</tr>
+		{% for solucion in  soluciones %}
+		<tr>
+		<td>{{solucion.problema.id}}</td>
+		<td>{{solucion.problema}}</td>
+		<td>{{solucion.fecha_envio}}</td>
+		<td>{{solucion.lenguaje}}</td>
+		<td>{{solucion.friki}}</td>
+		<td>{{solucion.estado}}</td>
+		</tr>
+		
+		{%empty%}
+		<tr>
+		<td>Aun no se han recibido soluciones</td>
+		</tr>
+		{% endfor %}
+	</table>
+	</fieldset><!-- fieldset tabla-->
+</div><!-- columna tiempos y tabla -->
+</div><!--row cuerpo-->		
+
+{% endblock%}

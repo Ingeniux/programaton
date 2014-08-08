@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>{{ title }} | Programatón</title>
+	<link rel='stylesheet' type='text/css' href='{{STATIC_URL}}css/foundation.css'>
+	<link rel='stylesheet' type='text/css' href='{{STATIC_URL}}css/estilo.css'>
+<script type='text/javascript' src='{{ STATIC_URL }}js/jquery.min.js'></script>
+{% block header %}  
+{% endblock header %}
+
+</head>
+<body>
+<nav class="top-bar" data-topbar>
+	<a href="/"><img src="{{STATIC_URL}}img/Pinguino.png"  width="100px" height="100px" />
+        <ul class="title-area">	   
+			<li class="name">
+			<header id="header">
+				<h1 class="titulo">Programatón</h1>            
+				<h1 style="font-size:18px;margin-top:-10px;">Universidad del Valle - Sede Tuluá</h1>               	
+			</header><!-- /header -->				
+        	</li>	
+        </ul>	
+     </a>
+</nav>
+<h2>{{ title }}</h2>
+{% if user.is_authenticated %}
+	<span>Usuario: {{user.alias}}</span><br>
+	<a href="{% url 'apps.accounts.views.friki_logout' %}" title="">Salir</a><br>
+
+	{% if user.is_staff %}
+	<a href="{% url 'admin:index' %}" >Admin Django</a><br>
+	{%endif%}
+
+{% endif %}
+<h3>Modulos</h3>
+{% block container %}{% endblock %}
+<footer>
+<span>v0.0.0</span>
+	<a href="https://github.com/Ingeniux/programaton" title="GitHub"><img src="{{STATIC_URL}}img/gh.jpeg"></a><br>
+	<a href="https://twitter.com/ingeniuxCo" title="Twitter"><img src="{{STATIC_URL}}img/social/tw.jpeg"></a>
+	<a href="https://facebook.com/ingeniuxco" title="Faceboook"><img src="{{STATIC_URL}}img/social/fb.jpeg"></a>
+	<a href="http://ingeniuxco.wordpress.com" title="Wordpress"><img src="{{STATIC_URL}}img/social/wp.jpeg"></a><br>
+	<span>© 2104 Ingeniux</span>
+</footer>
+</body>
+</html>

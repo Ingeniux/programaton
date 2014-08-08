@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Detalle Torneo  Programatón{% endblock %}
+{% block container %}<h2>Torneo</h2>
+	<p>Id: {{torneo.id}}</p>
+	<p>Nombre: {{torneo.nombre}}</p>
+	<p>Descripción: {{torneo.descripcion}}</p>
+	<p>Fecha inicio: {{torneo.fecha_inicio}}</p>
+	<p>Fecha finalización: {{torneo.fecha_finalizacion}}</p>
+	
+	<h3>Problemas:</h3>
+
+	{% for problema in problemas %}
+		<p>Id: {{problema.id}}</p>
+		<p>Nombre: {{problema.nombre}}</p>
+		<p>Descripción: {{problema.descripcion}}</p>
+	{% empty %}
+		<p>Aún no hay problemas</p>
+	{% endfor %}
+{% endblock%}

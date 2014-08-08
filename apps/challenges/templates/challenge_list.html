@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Torneos | Programatón{% endblock %}
+{% block header %}  
+{% endblock header %}
+{% block container %}
+<h2>Torneos</h2>
+ <table>
+  <tr>
+    <th>Nombre</th>
+    <th>Descripción</th>
+    <th>Inicio</th>
+    <th>Fin</th>
+  </tr>  
+    {% for torneo in torneos %}
+    <tr>
+	 	<td><a href="{% url 'core.views.detalle' torneo.id %}">{{torneo.id}}: {{torneo.nombre}}</a> <a href="{% url 'core.views.realtime' torneo.id %}">ver</a></td>
+	 	<td>{{torneo.descripcion}}</td>
+	 	<td>{{torneo.fecha_inicio}}</td>
+	 	<td>{{torneo.fecha_finalizacion}}</td>
+	 	<tr>
+ 	{% empty %}
+ 		<td>No hay torneos</td>
+ 		<tr>
+ 	{% endfor %}
+</table>
+{% endblock%}
+
