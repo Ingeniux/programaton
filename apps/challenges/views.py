@@ -2,6 +2,8 @@ from django.shortcuts import render_to_response, HttpResponse
 from django.core.context_processors import csrf
 from django.template import RequestContext 
 
+from django.http import Http404
+
 
 from apps.challenges.forms import ChallengeForm
 
@@ -10,7 +12,10 @@ def index(request):
 	return HttpResponse("Challenges")
 
 def challenge_index(request, challenge_id):
-	#torneo = Torneo.objects.get(id=id)
+	#try:
+		#torneo = Torneo.objects.get(id=id)
+	#except Torneo.DoesNotExist:
+	#	raise Http404
 	#soluciones = Solucion.objects.filter(torneo=id)
 	#return render_to_response('realtime.html', {'torneo': torneo, 'soluciones': soluciones}, context_instance=RequestContext(request))
 	return HttpResponse("Realtime %s" % challenge_id)

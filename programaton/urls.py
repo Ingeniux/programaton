@@ -6,7 +6,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^$', 'apps.core.views.index'),
     url(r'^manager/', include(admin.site.urls)),
-    url(r'^accounts/', include('apps.accounts.urls')),
-    url(r'^challenges/', include('apps.challenges.urls')),
+    url(r'^accounts/', include('apps.accounts.urls', namespace='accounts')),
+    url(r'^challenges/', include('apps.challenges.urls', namespace='challenges')),
 
 )

@@ -41,7 +41,7 @@ def friki_login(request):
 			user = authenticate(username=email, password=password)
 			if user is not None and user.is_active:
 				login(request,user)
-				return HttpResponseRedirect('/')
+				return HttpResponseRedirect(reverse('accounts:login')
 			else:
 				return HttpResponse('Algo salio mal')
 		else:

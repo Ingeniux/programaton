@@ -3,8 +3,8 @@
 
 
 {% if not user.is_authenticated %}
-	<a href="{% url 'friki_login' %}" title="Login">Login</a><br>
-	<a href="{% url 'friki_register' %}" title="Registro">Registro</a>
+	<a href="{% url 'accounts:login' %}" title="Login">Login</a><br>
+	<a href="{% url 'accounts:register' %}" title="Registro">Registro</a>
 		
 {% endif %}
 

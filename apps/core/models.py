@@ -94,6 +94,7 @@ class Lenguaje(models.Model):
 	def __unicode__(self):
 		return self.nombre
 		
+
 class Solucion(models.Model):
 	"""
 	Representa las soluciones a los problemas que han sido enviadas
@@ -110,6 +111,9 @@ class Solucion(models.Model):
 	lenguaje = models.ForeignKey(Lenguaje)
 	torneo = models.ForeignKey(Torneo)
 	archivo = models.FileField(upload_to=path)
+	
+	"""class Meta(self):
+		order_by = 'fecha_envio'"""
 
 class Caso_de_Prueba(models.Model):
 	"""docstring for Caso_de_Prueba"""

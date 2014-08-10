@@ -8,8 +8,8 @@
     {% endfor %}
 </ul>
 {% endif %}
-<a href="{% url 'friki_index' %}" title="cuenta">Accounts</a><br>
-<a href="{% url 'challenges_index' %}" title="Torneos">Challenges</a>
+<a href="{% url 'accounts:index' %}" title="cuenta">Accounts</a><br>
+<a href="{% url 'challenges:index' %}" title="Torneos">Challenges</a>
 
 
 {% endblock%}

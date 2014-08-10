@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>{{ title }} | Programatón</title>
+<title>{{ title }} | Programatón (No llega ni a Beta)</title>
 	<link rel='stylesheet' type='text/css' href='{{STATIC_URL}}css/foundation.css'>
 	<link rel='stylesheet' type='text/css' href='{{STATIC_URL}}css/estilo.css'>
 <script type='text/javascript' src='{{ STATIC_URL }}js/jquery.min.js'></script>
@@ -26,7 +26,7 @@
 <h2>{{ title }}</h2>
 {% if user.is_authenticated %}
 	<span>Usuario: {{user.alias}}</span><br>
-	<a href="{% url 'apps.accounts.views.friki_logout' %}" title="">Salir</a><br>
+	<a href="{% url 'friki:logout' %}" title="">Salir</a><br>
 
 	{% if user.is_staff %}
 	<a href="{% url 'admin:index' %}" >Admin Django</a><br>
@@ -37,10 +37,10 @@
 {% block container %}{% endblock %}
 <footer>
 <span>v0.0.0</span>
-	<a href="https://github.com/Ingeniux/programaton" title="GitHub"><img src="{{STATIC_URL}}img/gh.jpeg"></a><br>
-	<a href="https://twitter.com/ingeniuxCo" title="Twitter"><img src="{{STATIC_URL}}img/social/tw.jpeg"></a>
-	<a href="https://facebook.com/ingeniuxco" title="Faceboook"><img src="{{STATIC_URL}}img/social/fb.jpeg"></a>
-	<a href="http://ingeniuxco.wordpress.com" title="Wordpress"><img src="{{STATIC_URL}}img/social/wp.jpeg"></a><br>
+	<a href="https://github.com/Ingeniux/programaton" alt="GitHub" target="_blank"><img src="{{STATIC_URL}}img/gh.jpeg"></a><br>
+	<a href="https://twitter.com/ingeniuxCo" alt="Twitter" target="_blank"><img src="{{STATIC_URL}}img/social/tw.jpeg"></a>
+	<a href="https://facebook.com/ingeniuxco" alt="Faceboook" target="_blank"><img src="{{STATIC_URL}}img/social/fb.jpeg"></a>
+	<a href="http://ingeniuxco.wordpress.com" alt="Wordpress" target="_blank"><img src="{{STATIC_URL}}img/social/wp.jpeg"></a><br>
 	<span>© 2104 Ingeniux</span>
 </footer>
 </body>
