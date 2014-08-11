@@ -9,7 +9,7 @@ from apps.challenges.forms import ChallengeForm
 
 
 def index(request):
-	return HttpResponse("Challenges")
+	return render_to_response('challenge_index.html', {'title': 'Torneos'}, context_instance=RequestContext(request))
 
 def challenge_index(request, challenge_id):
 	#try:
